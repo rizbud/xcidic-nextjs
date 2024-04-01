@@ -36,12 +36,13 @@ export const useGetPokemons = ({
   return useQuery({
     queryKey: ["pokemons", limit, page],
     queryFn: async () => fetchPokemons({ limit, page }),
+    staleTime: 1000 * 60 * 5, // 5 minutes
   });
 };
 
 export const prefetchPokemons = async () => {
   return queryClient.prefetchQuery({
-    queryKey: ["pokemons", 10, 1],
-    queryFn: async () => fetchPokemons({ limit: 10, page: 1 }),
+    queryKey: ["pokemons", 24, 1],
+    queryFn: async () => fetchPokemons({ limit: 24, page: 1 }),
   });
 };

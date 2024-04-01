@@ -11,20 +11,20 @@ interface CardProps {
 export const PokemonCard = ({ id, title }: CardProps) => {
   return (
     <Link href={"/" + title} className="w-full">
-      <div className="flex flex-col bg-white shadow-md rounded-lg w-full">
-        <div className="relative w-auto h-auto aspect-square rounded-t-lg">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/${id}.png`}
-            alt={"Random image"}
-            layout="fill"
-            className="object-cover rounded-t-lg"
-          />
-        </div>
-
-        <div className="flex flex-col p-2">
-          <span className="text-lg font-bold">
+      <div className="group w-full relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 z-10 items-center justify-center p-1 flex group-hover:bg-opacity-10">
+          <span className="text-white text-2xl font-bold group-hover:hidden">
             {capitalizeFirstLetter(title)}
           </span>
+        </div>
+
+        <div className="relative w-auto h-auto aspect-square overflow-hidden">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/${id}.png`}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-125 ease-in-out duration-300"
+          />
         </div>
       </div>
     </Link>

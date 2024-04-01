@@ -1,3 +1,3 @@
-export * from "./card/card";
+export * from "./pokemon-card/pokemon-card";
 export * from "./detail/detail";
-export * from "./list/list";
+export * from "./pokemon-list/pokemon-list";

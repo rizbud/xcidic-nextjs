@@ -1,7 +1,7 @@
 "use client";
 
-import { useGetPokemons } from "~/services/use-get-pokemons";
-import { Card } from "..";
+import { useGetPokemons } from "~/hooks/use-get-pokemons";
+import { PokemonCard } from "..";
 import { CircularProgress, Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ export const List = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
         {data?.results.map((pokemon, idx) => (
-          <Card key={idx} id={idx + 1} title={pokemon.name} />
+          <PokemonCard key={idx} id={page * (idx + 1)} title={pokemon.name} />
         ))}
       </div>
 

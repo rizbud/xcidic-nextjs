@@ -2,7 +2,7 @@
 
 import { CircularProgress } from "@mui/material";
 import { usePathname } from "next/navigation";
-import { useGetPokemon } from "~/services/use-get-pokemon";
+import { useGetPokemon } from "~/hooks/use-get-pokemon";
 
 export const Detail = () => {
   const pathname = usePathname();

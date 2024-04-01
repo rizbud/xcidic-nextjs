@@ -1,7 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { BASE_URL } from "~/constants/base-url";
-
-interface Pokemon {
+export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
   cries: Cries;
@@ -24,15 +21,15 @@ interface Pokemon {
   weight: number;
 }
 
+export interface NameUrl {
+  name: string;
+  url: string;
+}
+
 interface Ability {
   ability: NameUrl;
   is_hidden: boolean;
   slot: number;
-}
-
-interface NameUrl {
-  name: string;
-  url: string;
 }
 
 interface Cries {
@@ -327,13 +324,3 @@ interface Type {
   slot: number;
   type: NameUrl;
 }
-
-export const useGetPokemon = (name: string) => {
-  return useQuery({
-    queryKey: ["pokemon", name],
-    queryFn: async () => {
-      const response = await fetch(`${BASE_URL}/pokemon/${name}`);
-      return response.json() as Promise<Pokemon>;
-    },
-  });
-};

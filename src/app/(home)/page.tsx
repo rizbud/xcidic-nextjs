@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { PokemonList } from "~/components";
 
 export const metadata: Metadata = {
@@ -22,7 +23,9 @@ export default async function Home() {
           />
         </Link>
 
-        <PokemonList />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PokemonList />
+        </Suspense>
       </div>
     </div>
   );
